@@ -10,16 +10,13 @@ bg_color = Color( 0.0941176, 0.0784314, 0.145098, 1 )
 [node name="MainMenu" type="CanvasLayer"]
 layer = 0
 script = ExtResource( 3 )
-First_Level = "res://Levels/TestScene.tscn"
+First_Level = "res://Levels/FirstLevel.tscn"
 
 [node name="BG" type="Panel" parent="."]
 pause_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_styles/panel = SubResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="MarginContainer" type="MarginContainer" parent="BG"]
 anchor_right = 1.0
@@ -32,36 +29,34 @@ custom_constants/margin_bottom = 16
 [node name="VBoxMain" type="VBoxContainer" parent="BG/MarginContainer"]
 margin_left = 16.0
 margin_top = 16.0
-margin_right = 304.0
-margin_bottom = 164.0
+margin_right = 704.0
+margin_bottom = 704.0
 size_flags_vertical = 3
 
 [node name="CenterLogo" type="CenterContainer" parent="BG/MarginContainer/VBoxMain"]
-margin_right = 288.0
+margin_right = 688.0
 margin_bottom = 64.0
 
 [node name="Logo" type="TextureRect" parent="BG/MarginContainer/VBoxMain/CenterLogo"]
-margin_left = 112.0
-margin_right = 176.0
+margin_left = 312.0
+margin_right = 376.0
 margin_bottom = 64.0
 texture = ExtResource( 2 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxMain"]
 margin_top = 68.0
-margin_right = 288.0
-margin_bottom = 148.0
+margin_right = 688.0
+margin_bottom = 688.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ButtonContainer" type="VBoxContainer" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
 margin_right = 51.0
-margin_bottom = 80.0
+margin_bottom = 620.0
 size_flags_vertical = 3
 custom_constants/separation = 1
 
-[node name="NewGame" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=[
-"MainMenu",
-] instance=ExtResource( 1 )]
+[node name="NewGame" parent="BG/MarginContainer/VBoxMain/HBoxContainer/ButtonContainer" groups=["MainMenu"] instance=ExtResource( 1 )]
 margin_right = 51.0
 text = "New Game"
 
@@ -79,8 +74,8 @@ text = "Exit"
 
 [node name="RightMargin" type="Control" parent="BG/MarginContainer/VBoxMain/HBoxContainer"]
 margin_left = 55.0
-margin_right = 288.0
-margin_bottom = 80.0
+margin_right = 688.0
+margin_bottom = 620.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
