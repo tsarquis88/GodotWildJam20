@@ -44,6 +44,10 @@ func physics_update(_delta: float) -> void:
 	
 	var animation = player.get_current_dir() + "Run"
 	if animationSprite.get_animation() != animation:
+		if move_direction.x > 0:
+			player.scale.x = player.scale.y * -1
+		else:
+			player.scale.x = player.scale.y
 		animationSprite.play(animation)
 
 

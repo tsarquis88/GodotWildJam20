@@ -41,4 +41,5 @@ tile_data = PoolIntArray( 196612, 17, 0, 196624, 15, 0, 393228, 16, 0, 524294, 1
 position = Vector2( 130, 130 )
 
 [node name="Bee" parent="CanvasLayer" instance=ExtResource( 4 )]
-position = Vector2( 300, 130 )
+position = Vector2( 350, 130 )
+scale = Vector2( 1.5, 1.5 )

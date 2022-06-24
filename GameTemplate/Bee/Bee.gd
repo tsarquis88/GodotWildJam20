@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var MAX_HP = 100
-export var NORMAL_SPEED = 3
+export var NORMAL_SPEED = 1
 
 var speed = NORMAL_SPEED
 var hp = MAX_HP

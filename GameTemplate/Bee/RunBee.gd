@@ -4,8 +4,9 @@ extends State
 
 onready var bee = self.get_node('../../')
 onready var animationSprite = self.get_node('../../AnimatedSprite')
+onready var timer = self.get_node('../../Timer')
 
-
+var move_direction
 
 func _ready():
 	pass
@@ -18,34 +19,16 @@ func handle_input(_event: InputEvent) -> void:
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
-	if !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_up") and !Input.is_action_pressed("move_right") and !Input.is_action_pressed("move_down"):
-		print_debug("BEE: Run to Idle")
-		state_machine.transition_to("Idle")
+	#if !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_up") and !Input.is_action_pressed("move_right") and !Input.is_action_pressed("move_down"):
+	#	print_debug("BEE: Run to Idle")
+	#	state_machine.transition_to("Idle")
+	pass
 
 
 # Virtual function. Corresponds to the `_physics_process()` callback.
 func physics_update(_delta: float) -> void:
-	var move_direction = Vector2()
-
-	var LEFT = Input.is_action_pressed("move_left")
-	var RIGHT = Input.is_action_pressed("move_right")
-	var UP = Input.is_action_pressed("move_up")
-	var DOWN = Input.is_action_pressed("move_down")
-
-	move_direction.x = int(RIGHT) - int(LEFT)
-	move_direction.y = int(DOWN) - int(UP)
-
-	if LEFT || RIGHT || UP || DOWN:
-		bee.set_facing(move_direction)
-	
-	bee.set_current_dir(direction2str(bee.facing))
-	
-	bee.move_and_collide(move_direction * bee.speed)
-	
-	var animation = bee.get_current_dir() + "Run"
-	if animationSprite.get_animation() != animation:
-		animationSprite.play(animation)
-
+	if bee.move_and_collide(move_direction * bee.speed):
+		change_move_direction()
 
 func direction2str(direction):
 	var angle = direction.angle()
@@ -57,14 +40,44 @@ func direction2str(direction):
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
-	pass
+	change_move_direction()
+	
+	timer.wait_time = randi() % 5 + 1
+	timer.start()
+	timer.connect("timeout", self, "run_timeout")
 
 # Virtual function. Called by the state machine before changing the active state. Use this function
 # to clean up the state.
 func exit() -> void:
 	pass
 
+func change_move_direction():
+	move_direction = Vector2()
+	
+	var LEFT = 0
+	var RIGHT = 0
+	var UP = 0
+	var DOWN = 0
+	
+	while !LEFT and !RIGHT and !UP and !DOWN:
+		LEFT = randi() % 2
+		RIGHT = randi() % 2
+		UP = randi() % 2
+		DOWN = randi() % 2
 
+	move_direction.x = int(RIGHT) - int(LEFT)
+	move_direction.y = int(DOWN) - int(UP)
 
+	bee.set_facing(move_direction)	
+	bee.set_current_dir(direction2str(bee.facing))
+	
+	var animation = bee.get_current_dir() + "Run"
+	if animationSprite.get_animation() != animation:
+		animationSprite.play(animation)
+
+func run_timeout():
+	timer.disconnect("timeout", self, "run_timeout")
+	print_debug("BEE: Run to Idle")
+	state_machine.transition_to("Idle")
 
 
