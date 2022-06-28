@@ -3,6 +3,8 @@ extends KinematicBody2D
 export var MAX_HP = 100
 export var NORMAL_SPEED = 3
 
+signal seed_planted
+
 var speed = NORMAL_SPEED
 var hp = MAX_HP
 
@@ -32,4 +34,5 @@ func _ready():
 	pass
 
 func _process(_delta):
-	pass
+	if Input.is_action_just_pressed("plant"):
+		emit_signal("seed_planted")
