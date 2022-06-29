@@ -12,9 +12,6 @@ func handle_input(_event: InputEvent) -> void:
 
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
-	#if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_right") or Input.is_action_pressed("move_down"):
-	#	print_debug("BEE: Idle to Run")
-	#	state_machine.transition_to("Run")
 	pass
 
 
@@ -26,7 +23,7 @@ func physics_update(_delta: float) -> void:
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
-	animationSprite.play(bee.get_current_dir() + "Idle" )
+	animationSprite.play("Idle")
 	timer.wait_time = randi() % 5 + 1
 	timer.start()
 	timer.connect("timeout", self, "idle_timeout")
@@ -36,6 +33,8 @@ func enter(_msg := {}) -> void:
 # to clean up the state.
 func exit() -> void:
 	pass
+
+
 
 func idle_timeout():
 	print_debug("BEE: Idle to Run")
