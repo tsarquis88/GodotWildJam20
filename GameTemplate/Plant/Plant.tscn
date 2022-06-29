@@ -1,93 +1,224 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Plant/Plant.gd" type="Script" id=1]
-[ext_resource path="res://Plant/Plant1.png" type="Texture" id=2]
-[ext_resource path="res://Plant/Plant0.png" type="Texture" id=3]
-[ext_resource path="res://Plant/Plant2.png" type="Texture" id=4]
-[ext_resource path="res://Plant/Plant3.png" type="Texture" id=5]
-[ext_resource path="res://Plant/Plant4.png" type="Texture" id=6]
-[ext_resource path="res://Plant/Plant5.png" type="Texture" id=7]
-[ext_resource path="res://Plant/Plant6.png" type="Texture" id=8]
-[ext_resource path="res://Plant/Plant7.png" type="Texture" id=9]
-[ext_resource path="res://Plant/Plant9.png" type="Texture" id=10]
-[ext_resource path="res://Plant/Plant8.png" type="Texture" id=11]
-[ext_resource path="res://Plant/Plant10.png" type="Texture" id=12]
+[ext_resource path="res://Plant/yellow1.png" type="Texture" id=2]
+[ext_resource path="res://Plant/yellow0.png" type="Texture" id=3]
+[ext_resource path="res://Plant/yellow2.png" type="Texture" id=4]
+[ext_resource path="res://Plant/yellow3.png" type="Texture" id=5]
+[ext_resource path="res://Plant/yellow4.png" type="Texture" id=6]
+[ext_resource path="res://Plant/yellow5.png" type="Texture" id=7]
+[ext_resource path="res://Plant/yellow6.png" type="Texture" id=8]
+[ext_resource path="res://Plant/yellow7.png" type="Texture" id=9]
+[ext_resource path="res://Plant/yellow9.png" type="Texture" id=10]
+[ext_resource path="res://Plant/yellow8.png" type="Texture" id=11]
+[ext_resource path="res://Plant/yellow10.png" type="Texture" id=12]
+[ext_resource path="res://Plant/blue9.png" type="Texture" id=13]
+[ext_resource path="res://Plant/blue4.png" type="Texture" id=14]
+[ext_resource path="res://Plant/blue2.png" type="Texture" id=15]
+[ext_resource path="res://Plant/blue0.png" type="Texture" id=16]
+[ext_resource path="res://Plant/blue1.png" type="Texture" id=17]
+[ext_resource path="res://Plant/blue6.png" type="Texture" id=18]
+[ext_resource path="res://Plant/blue8.png" type="Texture" id=19]
+[ext_resource path="res://Plant/blue5.png" type="Texture" id=20]
+[ext_resource path="res://Plant/blue3.png" type="Texture" id=21]
+[ext_resource path="res://Plant/blue7.png" type="Texture" id=22]
+[ext_resource path="res://Plant/blue10.png" type="Texture" id=23]
+[ext_resource path="res://Plant/red8.png" type="Texture" id=24]
+[ext_resource path="res://Plant/red7.png" type="Texture" id=25]
+[ext_resource path="res://Plant/red10.png" type="Texture" id=26]
+[ext_resource path="res://Plant/red9.png" type="Texture" id=27]
+[ext_resource path="res://Plant/red4.png" type="Texture" id=28]
+[ext_resource path="res://Plant/red3.png" type="Texture" id=29]
+[ext_resource path="res://Plant/red0.png" type="Texture" id=30]
+[ext_resource path="res://Plant/red2.png" type="Texture" id=31]
+[ext_resource path="res://Plant/red6.png" type="Texture" id=32]
+[ext_resource path="res://Plant/red5.png" type="Texture" id=33]
+[ext_resource path="res://Plant/red1.png" type="Texture" id=34]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 4.0
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "level4",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "level1",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "level2",
+"name": "yellow2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 23 ) ],
 "loop": true,
-"name": "level6",
+"name": "blue10",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 31 ) ],
 "loop": true,
-"name": "level5",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "level10",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "level8",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "level3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "level7",
+"name": "red2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "level9",
+"name": "yellow9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 27 ) ],
+"loop": true,
+"name": "red9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "blue3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "blue6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "red4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 29 ) ],
+"loop": true,
+"name": "red3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ) ],
+"loop": true,
+"name": "red6",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "level0",
+"name": "yellow0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 30 ) ],
+"loop": true,
+"name": "red0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "yellow5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 26 ) ],
+"loop": true,
+"name": "red10",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "blue8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "yellow3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "blue0",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 33 ) ],
+"loop": true,
+"name": "red5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "yellow8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "blue9",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 34 ) ],
+"loop": true,
+"name": "red1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "yellow6",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "blue4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "yellow10",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "blue5",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "blue1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "blue2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "yellow1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "red7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "yellow4",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
+"loop": true,
+"name": "blue7",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 24 ) ],
+"loop": true,
+"name": "red8",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 9 ) ],
+"loop": true,
+"name": "yellow7",
 "speed": 5.0
 } ]
 
 [node name="Plant" type="Area2D"]
-position = Vector2( 52, 43 )
-scale = Vector2( 2, 2 )
+scale = Vector2( 2.5, 2.5 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-MAX_GROW_LEVEL = 10
-
-[node name="SnailSimulator" type="Timer" parent="."]
+MAX_GROW_TIME = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 2 )
-animation = "level10"
+animation = "red10"
+
+[node name="GrowTimer" type="Timer" parent="."]

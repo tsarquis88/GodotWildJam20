@@ -2,7 +2,7 @@ extends Node2D
 
 export (String, FILE, "*.tscn") var Next_Scene: String
 
-var plant_scene = load("res://Plant/Plant.tscn")
+var actual_grow_place
 
 func _ready()->void:
 	Hud.visible = true
@@ -20,7 +20,8 @@ func _exit_tree()->void:
 	PauseMenu.can_show = false
 
 func plant_seed():
-	var plant = plant_scene.instance()
-	plant.position = $Player.position
-	plant.z_index = 0
-	add_child(plant)
+	if actual_grow_place != null:
+		actual_grow_place.plant()
+
+func _on_GrowPlace_player_entered(grow_place):
+	actual_grow_place = grow_place
