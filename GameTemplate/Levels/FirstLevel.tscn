@@ -34,8 +34,7 @@ format = 1
 tile_data = PoolIntArray( 196612, 17, 0, 393228, 16, 0, 720899, 16, 0, 720913, 16, 0, 1048594, 15, 0, 1179651, 17, 0, 1179661, 17, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-position = Vector2( 130, 130 )
+position = Vector2( 129, 189 )
 
 [node name="Bee" parent="." instance=ExtResource( 4 )]
 position = Vector2( 350, 130 )
-scale = Vector2( 1.5, 1.5 )

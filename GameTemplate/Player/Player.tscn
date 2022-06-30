@@ -917,3 +917,6 @@ script = ExtResource( 5 )
 
 [node name="Run" type="Node" parent="StateMachine"]
 script = ExtResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
