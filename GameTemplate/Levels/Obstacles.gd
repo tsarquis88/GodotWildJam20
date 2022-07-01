@@ -18,8 +18,8 @@ var _point_path = []
 const BASE_LINE_WIDTH = 3.0
 const DRAW_COLOR = Color('#fff')
 
-# get_used_cells_by_id is a method from the TileMap node
-# here the id 0 corresponds to the grey tile, the obstacles
+# get_used_cells_by_id is another method from the TileMap 
+# node to know the obstacles
 onready var obstacles = get_used_cells()
 onready var _half_cell_size = cell_size / 2
 

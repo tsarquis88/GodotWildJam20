@@ -2,11 +2,11 @@ extends State
 # MOVEMENT FROM:
 # 	https://godotengine.org/qa/31522/how-to-apply-sprite-for-8-direction-movement
 
+
+export var anim_speed = 3
 onready var bee = self.get_node('../../')
 onready var animationSprite = self.get_node('../../AnimatedSprite')
-onready var timer = self.get_node('../../Timer')
 
-var move_direction
 
 func _ready():
 	pass
@@ -36,6 +36,8 @@ func physics_update(_delta: float) -> void:
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
+	animationSprite.play("Idle")
+	animationSprite.set_speed_scale(anim_speed)
 	bee.path = bee.astar.find_path(bee.position, bee.target_position)
 	if not bee.path or len(bee.path) == 1:
 		state_machine.transition_to('Idle')
@@ -48,11 +50,5 @@ func enter(_msg := {}) -> void:
 # to clean up the state.
 func exit() -> void:
 	pass
-
-
-func run_timeout():
-	timer.disconnect("timeout", self, "run_timeout")
-	print_debug("BEE: Run to Idle")
-	state_machine.transition_to("Idle")
 
 

@@ -19,7 +19,6 @@ func handle_input(_event: InputEvent) -> void:
 # Virtual function. Corresponds to the `_process()` callback.
 func update(_delta: float) -> void:
 	if !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_up") and !Input.is_action_pressed("move_right") and !Input.is_action_pressed("move_down"):
-		print_debug("PLAYER: Run to Idle")
 		state_machine.transition_to("Idle")
 
 
