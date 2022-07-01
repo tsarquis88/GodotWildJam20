@@ -22,7 +22,7 @@ func move_to(world_position):
 	var steering = desired_velocity - velocity
 	velocity += steering / MASS
 	position += velocity * get_process_delta_time()
-	rotation = velocity.angle()
+#	rotation = velocity.angle()
 	return position.distance_to(world_position) < ARRIVE_DISTANCE
 
 
@@ -33,6 +33,9 @@ func _input(event):
 		else:
 			target_position = get_global_mouse_position()
 		$StateMachine.transition_to('Run')
+
+func get_sting_position():
+	return $StingPosition
 
 
 func get_tween():
