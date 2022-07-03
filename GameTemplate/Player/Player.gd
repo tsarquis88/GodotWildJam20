@@ -36,3 +36,6 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("plant"):
 		emit_signal("seed_planted")
+
+func recieve_hit():
+	pass

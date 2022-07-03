@@ -1,11 +1,10 @@
 extends State
-# MOVEMENT FROM:
-# 	https://godotengine.org/qa/31522/how-to-apply-sprite-for-8-direction-movement
 
 
-export var anim_speed = 3
-onready var bee = self.get_node('../../')
-onready var animationSprite = self.get_node('../../AnimatedSprite')
+export(int) var anim_speed : int = 3
+export(int) var delta_pos = 1000
+onready var bee : KinematicBody2D = self.get_node('../../')
+onready var animationSprite : AnimatedSprite = self.get_node('../../AnimatedSprite')
 
 
 func _ready():
@@ -36,6 +35,10 @@ func physics_update(_delta: float) -> void:
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
 func enter(_msg := {}) -> void:
+	randomize()
+	var movement = Vector2(randi() % delta_pos*2  - delta_pos ,
+		randi() % delta_pos * 2  - delta_pos)
+	bee.target_position = bee.position + movement
 	animationSprite.play("Idle")
 	animationSprite.set_speed_scale(anim_speed)
 	bee.path = bee.astar.find_path(bee.position, bee.target_position)

@@ -1,6 +1,6 @@
 extends State
 
-export var anim_speed = 3
+export var attack_anim_speed = 2
 onready var bee = self.get_node('../../')
 onready var animationSprite : AnimatedSprite = self.get_node('../../AnimatedSprite')
 onready var player: KinematicBody2D
@@ -22,7 +22,6 @@ func handle_input(_event: InputEvent) -> void:
 func update(_delta: float) -> void:
 	pass
 
-
 # Virtual function. Corresponds to the `_physics_process()` callback.
 func physics_update(_delta: float) -> void:
 	pass
@@ -30,11 +29,9 @@ func physics_update(_delta: float) -> void:
 
 # Virtual function. Called by the state machine upon changing the active state. The `msg` parameter
 # is a dictionary with arbitrary data the state can use to initialize itself.
-func enter(msg := {}) -> void:
-	print_debug("Entering attack from: ",msg.prev_state)
-	prev_state = msg.prev_state
+func enter(_msg := {}) -> void:
 	animationSprite.play("Attack")
-	animationSprite.set_speed_scale(1)
+	animationSprite.set_speed_scale(attack_anim_speed)
 	bee.get_tween().interpolate_property(bee, "rotation",
 		bee.get_rotation(),bee.get_angle_to(player.get_position()) - PI/2, 0.05,
 		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
@@ -49,18 +46,22 @@ func exit() -> void:
 func _on_AttackArea_body_entered(body):
 	if body.get_name() == 'Player':
 		player = body
-		state_machine.transition_to("Attack",{"prev_state": state_machine.state})
+		state_machine.transition_to("Attack")
 
 
 func _on_AnimatedSprite_frame_changed():
 	if animationSprite.get_animation() == "Attack" && animationSprite.get_frame() == 5:
 			var sting = stingScene.instance()
-			sting.set_target(player.get_global_position())
 			sting.set_position(bee.get_sting_position().get_global_position())
 			sting.set_rotation(bee.get_rotation()) 
 			self.get_tree().get_current_scene().add_child( sting )
+			look_at(player.get_position())
 
 
 func _on_AttackArea_body_exited(body):
 	if body.get_name() == 'Player':
-		state_machine.transition_to("Idle",{"prev_state": state_machine.state})
+		state_machine.transition_to("Idle")
+
+
+func look_at(target: Vector2):
+	pass
